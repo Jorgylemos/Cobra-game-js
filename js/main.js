@@ -15,9 +15,11 @@ let direcao = "direta";
 
 //Aqui fará com que o elemento apareça aleatoriamente na cena.
 let alimento = {
+
     //O Math.floor retira a parte flutuante do .random. O math.random retornará sempre um número aleatório até 1. O math.floor retira o decimal.
     x: Math.floor(Math.random() * 15 + 1) * pixel,
     y: Math.floor(Math.random() * 15 + 1) * pixel
+    
 };
 
 /* 
@@ -80,6 +82,16 @@ function iniciarjogo(){ //Função que irá iniciar e definir o controle do jogo
     if(cobra[0].y > 15 * pixel && direcao == "baixo") cobra[0].y = 0;
     if(cobra[0].y < 0 && direcao == "cima") cobra[0].y = 16 * pixel;
 
+    //Finalizar caso a cobra se enrole.
+    for(i = 1; i < cobra.length; i++){
+
+        //Se a posição 0 de cobra x for igual i do corpo (seja qual for o indice do corpo) e posição y igual a i do corpo, o jogo para.
+        if(cobra[0].x == cobra[i].x && cobra[0].y == cobra[i].y){
+            clearInterval(jogo);
+            alert("Fim de jogo!")
+        }
+    }
+
     background();
     cobrinha();
     comida();
@@ -94,11 +106,24 @@ function iniciarjogo(){ //Função que irá iniciar e definir o controle do jogo
     if(direcao == "cima") cobra_Y -= pixel;
     if(direcao == "baixo") cobra_Y += pixel;
     
-    cobra.pop();
+    //A cobra pega a comida ao mesmo tempo que cresce.
+    if(cobra_X != alimento.x || cobra_Y != alimento.y){
+
+        cobra.pop();
+    
+    }else{
+
+        alimento.x = Math.floor(Math.random() * 15 + 1) * pixel;
+        alimento.y = Math.floor(Math.random() * 15 + 1) * pixel;
+
+    }
+
 
     let newHead = {
+
         x: cobra_X,
         y: cobra_Y
+
     }
 
     cobra.unshift(newHead);
