@@ -60,12 +60,24 @@ function update(event){
     
     //Controle.
     //Ela só muda se a posição não for contrária a ela.
+    //Events com Arrows do teclado
     if(event.keyCode == 37 && direcao != "direita") direcao = "esquerda"; 
     if(event.keyCode == 38 && direcao != "baixo") direcao = "cima";
 
     if(event.keyCode == 39 && direcao != "esquerda") direcao = "direta";
     if(event.keyCode == 40 && direcao != "cima") direcao = "baixo";
     //Ao apertar alguma tecla, o event vai chamar a update e logo após irá passar como argumento o evento de tecla setada.
+
+    //Multiplayer (Irei implementar essa semana)
+    //Events com W,A,S,D
+    //if(event.keyCode == 65 && direcao != "direita") direcao = "esquerda"; 
+    //if(event.keyCode == 87 && direcao != "baixo") direcao = "cima";
+
+    //if(event.keyCode == 68 && direcao != "esquerda") direcao = "direta";
+    //if(event.keyCode == 83 && direcao != "cima") direcao = "baixo";
+
+
+    //Tabela de keycode: https://odesenvolvedor.com.br/tabela-de-key-codes-para-javascript_1464.html
 
 };
 
