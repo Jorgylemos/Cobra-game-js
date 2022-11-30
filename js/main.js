@@ -1,6 +1,10 @@
 let canvas = document.getElementById("cobra"); //Aqui irá pegar o ID especifico "cobra" no index
 let context = canvas.getContext("2d");//Aqui, o contexto renderiza o desenho dentro do canvas
 let pixel = 32; //Aqui representa o número de pixels
+let score = 0
+let reset = document.getElementById("reset").onclick = function() {
+    document.location.reload(true);
+}
 
 
 let cobra = []; //Aqui será definido a posição da cobra em relação ao fundo
@@ -124,7 +128,8 @@ function iniciarjogo(){ //Função que irá iniciar e definir o controle do jogo
         cobra.pop();
     
     }else{
-
+        score += 2
+        document.getElementById("score").innerHTML = score
         alimento.x = Math.floor(Math.random() * 15 + 1) * pixel;
         alimento.y = Math.floor(Math.random() * 15 + 1) * pixel;
 
