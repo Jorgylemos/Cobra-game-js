@@ -26,6 +26,25 @@ let alimento = {
     
 };
 
+let objetos = {
+    objeto1: {
+        x: Math.floor(Math.random() * 15 + 1) * pixel,
+        y: Math.floor(Math.random() * 15 + 1) * pixel
+    },
+    objeto2: {
+        x: Math.floor(Math.random() * 15 + 1) * pixel,
+        y: Math.floor(Math.random() * 15 + 1) * pixel
+    },
+    objeto3: {
+        x: Math.floor(Math.random() * 15 + 1) * pixel,
+        y: Math.floor(Math.random() * 15 + 1) * pixel
+    },
+    objeto4: {
+        x: Math.floor(Math.random() * 15 + 1) * pixel,
+        y: Math.floor(Math.random() * 15 + 1) * pixel
+    }
+}
+
 /* 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 */
@@ -47,6 +66,30 @@ function cobrinha(){
     
     }
 };
+
+function Objetos(){
+    function Objeto1(){
+        context.fillStyle = "green";
+        context.fillRect(objetos.objeto1.x, objetos.objeto1.y, pixel, pixel);
+    }
+    function Objeto2(){
+        context.fillStyle = "green";
+        context.fillRect(objetos.objeto2.x, objetos.objeto2.y, pixel, pixel);
+    }
+    function Objeto3(){
+        context.fillStyle = "green";
+        context.fillRect(objetos.objeto3.x, objetos.objeto3.y, pixel, pixel);
+    }
+    function Objeto4(){
+        context.fillStyle = "green";
+        context.fillRect(objetos.objeto4.x, objetos.objeto4.y, pixel, pixel);
+    }
+
+    Objeto1();
+    Objeto2();
+    Objeto3();
+    Objeto4();
+}
 
 function comida(){
 
@@ -104,13 +147,15 @@ function iniciarjogo(){ //Função que irá iniciar e definir o controle do jogo
         //Se a posição 0 de cobra x for igual i do corpo (seja qual for o indice do corpo) e posição y igual a i do corpo, o jogo para.
         if(cobra[0].x == cobra[i].x && cobra[0].y == cobra[i].y){
             clearInterval(jogo);
-            alert("Fim de jogo!")
+            alert("Fim de jogo!");
+            document.location.reload(true);
         }
     }
 
     background();
     cobrinha();
     comida();
+    Objetos();
 
     let cobra_X = cobra[0].x;
     let cobra_Y = cobra[0].y;
@@ -121,7 +166,49 @@ function iniciarjogo(){ //Função que irá iniciar e definir o controle do jogo
 
     if(direcao == "cima") cobra_Y -= pixel;
     if(direcao == "baixo") cobra_Y += pixel;
+
+    //--------------------------------------------------------------
+    if(cobra_X != objetos.objeto1.x || cobra_Y != objetos.objeto1.y){      
+    }else{
+        var objeto1 = objetos.objeto1.x = Math.floor(Math.random() * 15 + 1) * pixel;
+        var objeto2 = objetos.objeto1.y = Math.floor(Math.random() * 15 + 1) * pixel;
+        
+        if(objeto1 && objeto2){
+            document.location.reload(true);
+        }
+    }
+
+    if(cobra_X != objetos.objeto2.x || cobra_Y != objetos.objeto2.y){ 
+    }else{
+        var objeto1 = objetos.objeto2.x = Math.floor(Math.random() * 15 + 1) * pixel;
+        var objeto2 = objetos.objeto2.y = Math.floor(Math.random() * 15 + 1) * pixel;
+        
+        if(objeto1 && objeto2){
+            document.location.reload(true);
+        }
+    }
+
+    if(cobra_X != objetos.objeto3.x || cobra_Y != objetos.objeto3.y){
+    }else{
+        var objeto1 = objetos.objeto3.x = Math.floor(Math.random() * 15 + 1) * pixel;
+        var objeto2 = objetos.objeto3.y = Math.floor(Math.random() * 15 + 1) * pixel;
+        
+        if(objeto1 && objeto2){
+            document.location.reload(true);
+        }
+    }
     
+    if(cobra_X != objetos.objeto4.x || cobra_Y != objetos.objeto4.y){
+    }else{
+        var objeto1 = objetos.objeto4.x = Math.floor(Math.random() * 15 + 1) * pixel;
+        var objeto2 = objetos.objeto4.y = Math.floor(Math.random() * 15 + 1) * pixel;
+        
+        if(objeto1 && objeto2){
+            document.location.reload(true);
+        }
+    }
+
+     //--------------------------------------------------------------
     //A cobra pega a comida ao mesmo tempo que cresce.
     if(cobra_X != alimento.x || cobra_Y != alimento.y){
 
