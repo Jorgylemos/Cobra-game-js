@@ -2,7 +2,7 @@ let canvas = document.getElementById("cobra"); //Aqui irá pegar o ID especifico
 let context = canvas.getContext("2d");//Aqui, o contexto renderiza o desenho dentro do canvas
 let pixel = 32; //Aqui representa o número de pixels
 let score = 0
-let reset = document.getElementById("reset").onclick = function() {
+document.getElementById("reset").onclick = function() {
     document.location.reload(true);
 }
 
