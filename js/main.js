@@ -2,8 +2,15 @@ let canvas = document.getElementById("cobra"); //Aqui irá pegar o ID especifico
 let context = canvas.getContext("2d");//Aqui, o contexto renderiza o desenho dentro do canvas
 let pixel = 32; //Aqui representa o número de pixels
 let score = 0
+let audio = new Audio("sound.mp3");
+let foia_audio = new Audio("foia_sound.mp3");
+
 document.getElementById("reset").onclick = function() {
     document.location.reload(true);
+}
+
+document.getElementById("musica").onclick = function() {
+    foia_audio.play();
 }
 
 
@@ -211,7 +218,7 @@ function iniciarjogo(){ //Função que irá iniciar e definir o controle do jogo
      //--------------------------------------------------------------
     //A cobra pega a comida ao mesmo tempo que cresce.
     if(cobra_X != alimento.x || cobra_Y != alimento.y){
-
+        
         cobra.pop();
     
     }else{
@@ -219,7 +226,7 @@ function iniciarjogo(){ //Função que irá iniciar e definir o controle do jogo
         document.getElementById("score").innerHTML = score
         alimento.x = Math.floor(Math.random() * 15 + 1) * pixel;
         alimento.y = Math.floor(Math.random() * 15 + 1) * pixel;
-
+        audio.play();
     }
 
 
